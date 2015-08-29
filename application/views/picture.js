@@ -14,11 +14,7 @@ define([
             this.listenTo(this.model, 'change', this.render, this);
         },
         onShow: function () {
-            var model = this.model, url = null;
-            if (this.model.get('media_type') == 'video') {
-                
-            }
-
+           this.$el.toggleClass('animated fadeInLeftBig');
         },
         templateHelpers: function () {
             return {
