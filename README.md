@@ -1,2 +1,2 @@
 # apod
-Astronomy Picture of the day by NASAAPI
+Astronomy Picture of the day by NASA
