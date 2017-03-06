@@ -7,7 +7,12 @@ const moment = require('moment');
 
 var PictureView = Marionette.View.extend({
   template: template,
-  className: 'col-lg-3 col-md-4 col-xs-6 thumb',
+  initialize() {
+    console.log(this.model);
+  },
+  onAttach() {
+    this.$('#apod-modal').modal('show');
+  },
   serializeData() {
     var model = this.model;
     return _.extend(model.toJSON());

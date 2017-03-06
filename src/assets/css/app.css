@@ -3,5 +3,9 @@
  */
 
 #app-content {
-  margin-top: 80px;
+    margin-top: 80px;
+}
+
+#calendar {
+    margin: 0 auto;
 }

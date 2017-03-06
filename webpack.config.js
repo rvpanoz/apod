@@ -15,7 +15,8 @@ function getPlugins() {
   plugins.push(new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
-    'window.jQuery': 'jquery'
+    'window.jQuery': 'jquery',
+    '_': 'lodash'
   }));
 
   // production build
@@ -51,6 +52,7 @@ module.exports = {
       "node_modules"
     ],
     alias: {
+      'app-config': 'src/config',
       handlebars: 'handlebars/dist/handlebars.min.js',
       src: path.resolve(__dirname, 'src'),
       libc: path.resolve(__dirname, 'src/libc'),
@@ -60,7 +62,8 @@ module.exports = {
       utilities: path.resolve(__dirname, 'src/utilities/'),
       templates: path.resolve(__dirname, 'src/templates/'),
       schemas: path.resolve(__dirname, 'src/schemas/'),
-      views: path.resolve(__dirname, 'src/views/')
+      views: path.resolve(__dirname, 'src/views/'),
+      bower: path.resolve(__dirname, 'src/bower_components/')
     }
   },
   plugins: getPlugins(),

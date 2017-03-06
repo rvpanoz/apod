@@ -5,7 +5,9 @@ const template = require('templates/layout.hbs');
 const datepicker = require('../plugins/datepicker/js/datepicker.min');
 const datepickerEN =  require('../plugins/datepicker/js/i18n/datepicker.en');
 
+const bootstrapCSS = require('bootstrap/dist/css/bootstrap.min.css');
 const appCSS = require('../assets/css/app.css');
+const fullCalendarCSS = require('fullcalendar/dist/fullcalendar.css');
 const datepickerCSS = require('../plugins/datepicker/css/datepicker.min.css');
 
 var Layout = Marionette.View.extend({

@@ -5,7 +5,10 @@ const config = require('../config');
 var date = moment(new Date()).format('DD/MM/YYYY');
 
 var Picture = Backbone.Model.extend({
-
+  urlRoot: config.api.url,
+  parse(response) {
+    return response.data;
+  }
 });
 
 var Pictures = Backbone.Collection.extend({
@@ -19,5 +22,6 @@ var Pictures = Backbone.Collection.extend({
 });
 
 module.exports = {
-  Pictures: Pictures
+  Pictures: Pictures,
+  Picture: Picture
 }
