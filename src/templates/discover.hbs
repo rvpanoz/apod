@@ -1,0 +1,84 @@
+<div class="row">
+  <div class="col-md-9">
+    <h3>{{title}}</h3>
+    <div class="main-container">
+        <section class="bio">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="profile-photo">
+                    <div>
+                      <a role="button" data-toggle="modal" data-target="#p-modal">
+                          <img class="lib-img-show img-responsive" src="{{hdurl}}" alt="{{title}}">
+                      </a>
+                    </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="details">
+                    <div class="tiny-details">
+                        <h4>{{title}}</h4>
+                        <h5>{{date}}</h5>
+                        <div class="location">
+                            <a href=""></a>
+                            <h6>{{copyright}}</h6>
+                        </div>
+                    </div>
+                    <div class="follow-details">
+                        <div class="shots">
+                            <p>
+                                <a href="{{hdurl}}" download>Download</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="description">
+                        <p>
+                            {{explanation}}
+                        </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+
+        </section>
+        <div class="connect-me">
+            <div class="navigate follow-me" data-slide="prev">
+                Previous day
+            </div>
+            <div class="navigate hire-me" data-slide="next">
+                Next day
+            </div>
+        </div>
+
+
+    </div>
+  </div>
+  <div class="col-md-3">
+    <h3>Pick a date</h3>
+    <div class="datepicker-here" data-language='en'></div>
+  </div>
+</div>
+
+<!-- picture modal -->
+<div id="p-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <a href="{{hdurl}}" download>
+                      <img class="lib-img-show img-responsive" src="{{hdurl}}">
+                    </a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,11 +1,11 @@
-require('file-loader?name=[name].[ext]!./index.html');
-
 const _ = require('lodash');
 const Backbone = require('backbone');
 const Marionette = require('backbone.marionette');
 const Handlebars = require('handlebars');
-const Application = require('./app');
 const config = require('./config');
+const app = require('app');
+
+window.app = app;
 
 //trick to copy index.html into dist/index.html
 require('file-loader?name=[name].[ext]!./index.html');
@@ -17,34 +17,33 @@ Marionette.TemplateCache.prototype.lazyLoadTemplate = function (rawTemplate, opt
   return Handlebars.compile(rawTemplate);
 };
 
-// instatiate global app
-window.app = new Application();
-
-// ajax setup
+/**
+ * [$.ajax setup]
+ * @type {Boolean}
+ */
 $.ajaxSetup({
-  cache: false,
+  cache: true,
   beforeSend: function(xhr) {
-    var token = localStorage.getItem('token');
-    xhr.setRequestHeader('Authorization', 'Bearer ' + token);
+    //todo
   },
   statusCode: {
     400: function(data) {
       if (data && data.responseText) {
         var response = JSON.parse(data.responseText);
-        alert(response.message);
+        app.showMessage(response.message, 'danger');
       }
     },
     401: function(data) {
       if (data && data.responseText) {
         var response = JSON.parse(data.responseText);
-        app.showMessage(response.message, 'danger')
+        app.showMessage(response.message, 'danger');
         app.triggerMethod('app:signout');
       }
     },
     403: function(data) {
       if (data && data.responseText) {
         var response = JSON.parse(data.responseText);
-        app.showMessage(response.message, 'danger')
+        app.showMessage(response.message, 'danger');
         app.triggerMethod('app:signout');
       }
     },

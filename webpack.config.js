@@ -5,7 +5,7 @@ const isProd = (process.env.NODE_ENV === 'production');
 function getPlugins() {
   var plugins = [];
 
-  // expose NODE_ENV to webpack
+  // Always expose NODE_ENV to webpack
   plugins.push(new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': process.env.NODE_ENV
@@ -15,16 +15,15 @@ function getPlugins() {
   plugins.push(new webpack.ProvidePlugin({
     $: 'jquery',
     jQuery: 'jquery',
-    'window.jQuery': 'jquery',
-    '_': 'lodash'
+    'window.jQuery': 'jquery'
   }));
 
-  // production build
+  // Conditionally add plugins for Production builds.
   if (isProd) {
     plugins.push(new webpack.optimize.UglifyJsPlugin());
   }
 
-  // development
+  // Conditionally add plugins for Development
   else {
     plugins.push(new webpack.HotModuleReplacementPlugin());
   }
@@ -36,39 +35,43 @@ module.exports = {
   context: path.resolve(__dirname, './src'),
   devtool: 'source-map',
   entry: './entry',
+  node: {
+    console: 'mock',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js',
-    publicPath: '/public'
+    publicPath: '/public/'
   },
   devServer: {
     open: false,
     contentBase: path.resolve(__dirname, './src')
   },
   resolve: {
-    extensions: ['.js', '.json', '.css', '.scss', '.hbs'],
+    extensions: ['.js', '.json', '.css', '.scss'],
     modules: [
       path.join(__dirname, './src'),
       "node_modules"
     ],
     alias: {
-      'app-config': 'src/config',
       handlebars: 'handlebars/dist/handlebars.min.js',
       src: path.resolve(__dirname, 'src'),
-      libc: path.resolve(__dirname, 'src/libc'),
       public: path.resolve(__dirname, 'src/public'),
-      components: path.resolve(__dirname, 'src/components'),
-      scripts: path.resolve(__dirname, 'src/scripts'),
-      utilities: path.resolve(__dirname, 'src/utilities/'),
       templates: path.resolve(__dirname, 'src/templates/'),
       schemas: path.resolve(__dirname, 'src/schemas/'),
       views: path.resolve(__dirname, 'src/views/'),
-      bower: path.resolve(__dirname, 'src/bower_components/')
+      app: path.resolve(__dirname, 'src/app.js'),
+      request: 'request/request.js'
     }
   },
   plugins: getPlugins(),
   module: {
-    rules: [{
+    rules: [
+      //css and scss loaders
+      {
         test: /\.css$/,
         use: [
           "style-loader", "css-loader"

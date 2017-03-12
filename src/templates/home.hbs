@@ -1,5 +1,87 @@
-<div id="calendar">
+<div class="jumbotron">
+    <h1>APOD</h1>
+    <p>Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
+    <p><a class="btn btn-primary btn-lg discover">Discover</a></p>
+</div>
+<h3>Today's picture</h3>
+<div class="main-container">
+    <section class="bio">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="details">
+                    <div class="tiny-details">
+                        <h4>{{title}}</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="profile-photo">
+                    <div>
+                        <a role="button" data-toggle="modal" data-target="#p-modal">
+                            <img class="lib-img-show img-responsive" src="{{hdurl}}" alt="{{title}}">
+                        </a>
+                    </div>
+                </div>
+                <div class="details">
+                    <div class="description">
+                        <p>
+                            {{explanation}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </section>
 </div>
 
-<div id="picture-modal"></div>
+<!-- picture modal -->
+<div id="p-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <a href="{{hdurl}}" download>
+                        <img class="lib-img-show img-responsive" src="{{hdurl}}">
+                    </a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- picture modal -->
+<div id="p-modal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    <a href="{{hdurl}}" download>
+                        <img class="lib-img-show img-responsive" src="{{hdurl}}">
+                    </a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

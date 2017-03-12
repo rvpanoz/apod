@@ -1,13 +1,14 @@
 const _ = require('lodash');
 const Backbone = require('backbone');
-const utils = require('./utils');
+const lib = require('./lib');
 
 module.exports = Backbone.Router.extend({
   routes: {
     '*actions': 'do_action'
   },
   do_action: function (actions) {
-    var url = utils.decode(actions), opts;
+    var token = localStorage.getItem('token');
+    var url = lib.decode(actions), opts;
 
     //fix url
     if (!url || _.isNull(url)) {

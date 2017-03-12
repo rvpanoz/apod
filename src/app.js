@@ -1,7 +1,10 @@
+const Backbone = require('backbone');
 const Marionette = require('backbone.marionette');
 const LayoutView = require('views/layout');
 const Router = require('./router');
 const config = require('./config');
+const Bootstrap = require('bootstrap/dist/js/bootstrap.min');
+const themeJS = require('./assets/js/theme');
 
 var app = Marionette.Application.extend({
   region: '#app-content',
@@ -34,27 +37,23 @@ var app = Marionette.Application.extend({
     /**
      * Global app events
      */
-    this.listenTo(this, 'app:signin', this.onSignin, this, arguments);
-    this.listenTo(this, 'app:signout', this.onSignout, this, arguments);
-    this.listenTo(this, 'hide:sidebar', this.onHideSidebar, this, arguments);
   },
-
-  onAppEvent(event, opts) {
-    this.trigger(event, opts);
-  },
-
   navigate(cls, params) {
     var url = {};
     _.extend(url, {
       cls: cls,
       params: params
     });
-    this.trigger('hide:filters');
+
     this.router.navigate(JSON.stringify(url), {
       trigger: true
     });
-    this.trigger('hide:sidebar');
+
     return false;
+  },
+
+  onAppEvent(event, opts) {
+    this.trigger(event, opts);
   },
 
   wait(active) {
@@ -73,4 +72,4 @@ var app = Marionette.Application.extend({
   }
 });
 
-module.exports = app;
+module.exports = new app();
