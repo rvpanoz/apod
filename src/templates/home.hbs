@@ -1,20 +1,23 @@
 <div class="jumbotron">
     <h1>APOD</h1>
     <p>Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
-    <p><a class="btn btn-primary btn-lg discover">Discover</a></p>
+    <p>
+      <a class="btn btn-primary btn-lg discover">Discover</a>
+      <a href="https://github.com/rvpanoz/apod" class="btn btn-info btn-lg">Github repo</a>
+    </p>
 </div>
 <h3>Today's picture</h3>
 <div class="main-container">
     <section class="bio">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-3">
                 <div class="details">
                     <div class="tiny-details">
                         <h4>{{title}}</h4>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
+            <div class="col-md-9">
                 <div class="profile-photo">
                     <div>
                         <a role="button" data-toggle="modal" data-target="#p-modal">
@@ -31,7 +34,6 @@
                 </div>
             </div>
         </div>
-
     </section>
 </div>
 

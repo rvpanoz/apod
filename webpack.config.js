@@ -93,7 +93,7 @@ module.exports = {
       // Font Definitions
       {
         test: /\.(ttf|otf|eot|svg|woff(2)?)(\?[a-z0-9]+)?$/,
-        loader: 'file-loader?name=[name].[ext]'
+        loader: 'url-loader?name=[name].[ext]'
       },
       {
         test: /\.js$/,
