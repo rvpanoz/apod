@@ -1,7 +1,7 @@
 {
-  "name": "unitygen",
+  "name": "apod",
   "version": "1.0.0",
-  "description": "Generate Unity schemas",
+  "description": "Apod - Astronomy picture of the day",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -9,7 +9,7 @@
     "build": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --env.prod=true",
     "electron-rebuild": "./node_modules/.bin/electron-rebuild"
   },
-  "author": "parvanitis@singularlogic.eu",
+  "author": "rvpanoz@gmail.com",
   "license": "ISC",
   "devDependencies": {
     "async": "^2.1.5",
